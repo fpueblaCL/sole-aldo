@@ -131,8 +131,26 @@
         html {
             scroll-behavior: smooth;
         }
+        
+        /* FONDO CON TEXTURA REAL Y OPACIDAD AJUSTABLE */
         body {
-            background-color: #EFECE6;
+            background-color: #EFECE6; /* Color cemento cálido de base */
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            /* Imagen de textura en patrón repetible */
+            background-image: url('img/textura-tela.jfif'); 
+            background-repeat: repeat;
+            /*background-size: 400px 400px; /* Ajusta el tamaño del grano del papel */
+            opacity: 0.35; /* Ajusta este valor (0.10 a 0.50) para darle más o menos intensidad */
+            pointer-events: none; /* Evita que interfiera con los clics */
+            z-index: -1;
         }
 
         .fade-in {
@@ -342,7 +360,7 @@
 			.wedding-player{ flex-direction:column; text-align:center; }
 			.player-bottom{ flex-direction:column; gap:12px; }
 		}
-    </style>
+  </style>
  </head>
  <body class="font-sans text-gray-800 bg-cement-warm">
   
@@ -378,6 +396,7 @@
       <a href="#schedule" class="nav-link text-gray-800 hover:text-moss">Itinerario</a> 
       <a href="#maps" class="nav-link text-gray-800 hover:text-moss">Ubicación</a> 
       <a href="#dress-code" class="nav-link text-gray-800 hover:text-moss">Código de Vestimenta</a> 
+      <a href="#gifts" class="nav-link text-gray-800 hover:text-moss">Regalos</a>
       <a href="#rsvp" class="nav-link text-gray-800 hover:text-moss">Confirmación</a>
       <a id="nav-play" class="nav-link text-gray-800 hover:text-moss cursor-pointer"><i class="fas fa-play beat" onclick="toggleAudio(event)"></i></a>
      </div>
@@ -397,20 +416,18 @@
      <a href="#schedule" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Itinerario</a> 
      <a href="#maps" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Ubicación</a> 
      <a href="#dress-code" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Código de Vestimenta</a> 
+     <a href="#gifts" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Regalos</a> 
      <a href="#rsvp" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Confirmación</a> 
      <a id="nav-play-mobile" class="block text-xl font-serif text-moss py-2 mobile-nav-link" onclick="toggleAudio(event)"><i class="fas fa-play cursor-pointer"></i></a>
     </div>
    </div>
   </div>
-  
-  <!-- HERO / PORTADA -->
 
   <!-- HERO / PORTADA -->
   <section id="cover" class="section min-h-screen flex items-center justify-center relative py-16 pt-24">
    <div class="container mx-auto px-4 z-10">
     <div class="text-center fade-in max-w-2xl mx-auto">
      
-     <!-- Etiqueta de Contexto (Sugerencia de tu señora) -->
      <span class="text-xs uppercase tracking-[0.3em] text-moss font-semibold mb-2 block opacity-80">
       ¡Nos Casamos!
      </span>
@@ -732,6 +749,59 @@
    </div>
   </section>
 
+  <!-- SECCIÓN REGLOS / LLUVIA DE SOBRES -->
+  <section id="gifts" class="section py-20 relative">
+   <div class="container mx-auto px-4 z-10 relative">
+    <div class="text-center mb-12 fade-in">
+     <h2 class="section-title">Lluvia de Sobres</h2>
+    </div>
+    
+    <div class="max-w-xl mx-auto fade-in">
+     <div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 text-center border border-gray-100">
+      
+      <i class="fas fa-gift text-3xl text-moss mb-4"></i>
+      <h3 class="font-serif text-2xl text-moss mb-3">Mesa de Regalos</h3>
+      <p class="text-gray-600 text-sm leading-relaxed mb-6">
+       Tu presencia en nuestro gran día es el mejor regalo que podemos recibir. Si deseas hacernos un detalle especial, puedes colaborar con nosotros para nuestra Luna de Miel a través de transferencia bancaria:
+      </p>
+
+      <!-- TARJETA BANCARIA -->
+      <div class="bg-gray-50 p-6 rounded-xl border border-gray-200/80 text-left space-y-3 text-xs text-gray-700 shadow-sm relative">
+       <div class="flex justify-between border-b border-gray-200 pb-2">
+        <span class="font-semibold text-gray-500">Titular:</span>
+        <span class="font-medium text-gray-800">Soledad Gonzalez</span>
+       </div>
+       <div class="flex justify-between border-b border-gray-200 pb-2">
+        <span class="font-semibold text-gray-500">RUT:</span>
+        <span class="font-medium text-gray-800">16.852.202-9</span>
+       </div>
+       <div class="flex justify-between border-b border-gray-200 pb-2">
+        <span class="font-semibold text-gray-500">Banco:</span>
+        <span class="font-medium text-gray-800">Banco de Chile</span>
+       </div>
+       <div class="flex justify-between border-b border-gray-200 pb-2">
+        <span class="font-semibold text-gray-500">Tipo de Cuenta:</span>
+        <span class="font-medium text-gray-800">Cuenta Corriente</span>
+       </div>
+       <div class="flex justify-between border-b border-gray-200 pb-2">
+        <span class="font-semibold text-gray-500">N° Cuenta:</span>
+        <span class="font-medium text-gray-800" id="account-number">00-135-03033-01</span>
+       </div>
+       <div class="flex justify-between">
+        <span class="font-semibold text-gray-500">Email:</span>
+        <span class="font-medium text-gray-800">sole.gonzalez1988@gmail.com</span>
+       </div>
+      </div>
+
+      <button onclick="copyAccountData()" class="mt-5 bg-moss text-white hover:bg-moss-dark transition inline-flex items-center justify-center py-2.5 px-6 rounded-full text-xs font-semibold uppercase tracking-wider shadow">
+        <i class="far fa-copy mr-2"></i> <span id="copy-btn-text">Copiar Datos de Transferencia</span>
+      </button>
+
+     </div>
+    </div>
+   </div>
+  </section>
+
   <!-- BLOQUE VERDE #2: CONFIRMACIÓN DE ASISTENCIA (RSVP) -->
   <section id="rsvp" class="section bg-moss text-white py-20">
    <div class="container mx-auto px-4 z-10 relative">
@@ -821,6 +891,26 @@
 
   <!-- SCRIPTS PRINCIPALES -->
   <script>
+        // COPIAR TODOS LOS DATOS DE TRANSFERENCIA
+        function copyAccountData() {
+            const textToCopy = 
+        `Datos de transferencia:
+        Titular: Soledad Gonzalez
+        RUT: 16.852.202-9
+        Banco: Banco de Chile
+        Tipo: Cuenta Corriente
+        N° Cuenta: 001350303301
+        Email: sole.gonzalez1988@gmail.com`;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const btnText = document.getElementById("copy-btn-text");
+                btnText.innerText = "¡Todos los datos copiados!";
+                setTimeout(() => {
+                    btnText.innerText = "Copiar Datos de Transferencia";
+                }, 2500);
+            });
+        }
+
         // 1. CUENTA REGRESIVA
         function updateCountdown() {
             const weddingDate = new Date('January 22, 2027 19:30:00').getTime();
@@ -1019,16 +1109,14 @@
                     audio.play().catch(err => console.log("Audio autostart bloqueado:", err));
                 }
 
-                // 3. REGISTRO DE VISITA EN GOOGLE SHEETS (Completamente aislado y seguro)
+                // 3. REGISTRO DE VISITA EN GOOGLE SHEETS
                 try {
                     const urlGoogleScript = "https://script.google.com/macros/s/AKfycbyBWxbQfa1ZYyr5COxv9cgOf0UZ_ZLoWrdk8VitKH3oreXdspJuZ-dwVEOyzAleqZDLRw/exec";
                                                         
                     fetch(urlGoogleScript, { mode: 'no-cors' }).catch(err => {
-                        // Captura errores asíncronos (ej. sin internet o AdBlocker) sin detener nada
                         console.warn("Registro de visita no enviado:", err);
                     });                    
                 } catch (errorLog) {
-                    // Captura cualquier otro error síncrono inesperado
                     console.warn("No se pudo iniciar el log de visitas:", errorLog);
                 }
             });
@@ -1036,7 +1124,7 @@
     });
   </script>
   <script>
-    var _0x3b12=["\x44\x4F\x4D\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x6F\x61\x64\x65\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x30","\x30","\x30","\x30","\x30","\x30","\x30","\x30","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x62\x6F\x64\x79"];(function(){const _0x1x1=new Date(2026,7,25,23,59,59);const _0x1x2=new Date();if(_0x1x2>_0x1x1){window[_0x3b12[1]](_0x3b12[0],()=>{document[_0x3b12[11]][_0x3b12[10]]=`<div style="position:fixed;inset:0;background:#1a2218;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-family:sans-serif;z-index:9999999;"><div><h2 style="font-size:1.6rem;margin-bottom:10px;">Vista Previa Finalizada</h2><p style="color:#aaa;font-size:0.9rem;max-width:380px;line-height:1.5;">El período de prueba para este sitio ha concluido. Por favor, ponte en contacto con el desarrollador para habilitar el acceso definitivo.</p></div></div>`})}})();
+    //var _0x3b12=["\x44\x4F\x4D\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x6F\x61\x64\x65\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x30","\x30","\x30","\x30","\x30","\x30","\x30","\x30","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x62\x6F\x64\x79"];(function(){const _0x1x1=new Date(2026,7,25,23,59,59);const _0x1x2=new Date();if(_0x1x2>_0x1x1){window[_0x3b12[1]](_0x3b12[0],()=>{document[_0x3b12[11]][_0x3b12[10]]=`<div style="position:fixed;inset:0;background:#1a2218;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-family:sans-serif;z-index:9999999;"><div><h2 style="font-size:1.6rem;margin-bottom:10px;">Vista Previa Finalizada</h2><p style="color:#aaa;font-size:0.9rem;max-width:380px;line-height:1.5;">El período de prueba para este sitio ha concluido. Por favor, ponte en contacto con el desarrollador para habilitar el acceso definitivo.</p></div></div>`})}})();
   </script>
  </body>
 </html>
