@@ -137,20 +137,39 @@
             background-color: #EFECE6; /* Color cemento cálido de base */
             position: relative;
         }
-
+        
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             width: 100vw;
             height: 100vh;
-            /* Imagen de textura en patrón repetible */
-            background-image: url('img/textura-papel.jfif'); 
-            background-repeat: repeat;
-            /*background-size: 400px 400px; /* Ajusta el tamaño del grano del papel */
-            opacity: 0.35; /* Ajusta este valor (0.10 a 0.50) para darle más o menos intensidad */
-            pointer-events: none; /* Evita que interfiera con los clics */
+            background-image: url('img/patron-horizontal.jfif');
+            background-size: cover;
+            background-position: center top;
+            /* Reducir la opacidad es clave para que los textos se lean sin esfuerzo */
+            opacity: 0.25; 
+            pointer-events: none;
             z-index: -1;
+        }
+
+        /* Las tarjetas de contenido (itinerario, mapa, datos) se leen perfecto sobre el fondo de hojas */
+        .bg-card-overlay {
+            background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco 85% opaco */
+            backdrop-filter: blur(5px); /* Efecto cristal esmerilado */
+            border-radius: 1.5rem;
+            padding: 2rem;
+        }
+
+        /* Para pantallas de celulares (móviles) */
+        @media (max-width: 640px) {
+            body::before {
+                /* Controla el zoom en el celular ajustando el porcentaje */
+                background-size: 120% auto !important; 
+                
+                /* Asegura que el centro de la imagen quede centrado */
+                background-position: center top !important; 
+            }
         }
 
         .fade-in {
@@ -403,6 +422,7 @@
      </div>
      <div class="hidden md:flex items-center space-x-8">
       <a href="#cover" class="nav-link text-gray-800 hover:text-moss">Inicio</a> 
+      <a href="#story" class="nav-link text-gray-800 hover:text-moss">Nuestra Historia</a>
       <a href="#schedule" class="nav-link text-gray-800 hover:text-moss">Itinerario</a> 
       <a href="#maps" class="nav-link text-gray-800 hover:text-moss">Ubicación</a> 
       <a href="#dress-code" class="nav-link text-gray-800 hover:text-moss">Código de Vestimenta</a> 
@@ -423,6 +443,7 @@
    <div class="flex flex-col items-center justify-center h-full">
     <div class="space-y-6 text-center">
      <a href="#cover" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Inicio</a> 
+     <a href="#story" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Nuestra Historia</a>
      <a href="#schedule" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Itinerario</a> 
      <a href="#maps" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Ubicación</a> 
      <a href="#dress-code" class="block text-xl font-serif text-moss py-2 mobile-nav-link">Código de Vestimenta</a> 
@@ -449,15 +470,21 @@
      
      <div class="w-20 h-0.5 bg-moss mx-auto mb-8 opacity-40"></div>  
      
-     <!-- FOTO PORTADA (foto2.png) -->
-     <div class="mb-8 max-w-sm mx-auto">
-      <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+     <!-- FOTO PORTADA MÁS PEQUEÑA (foto2.png) -->
+     <div class="mb-4 max-w-[230px] mx-auto">
+      <div class="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white">
        <div class="aspect-[3/4] flex items-center justify-center">
-        <img src="img/foto2.png" alt="Soledad & Aldo" class="object-cover w-full h-full">
+        <img src="img/foto3.jpeg" alt="Soledad & Aldo" class="object-cover w-full h-full">
        </div>
       </div>
      </div>
      
+     <!-- INICIALES ABAJO DE LA FOTO -->
+     <div class="text-center mb-6">
+      <span class="great-vibes text-4xl md:text-5xl text-moss block tracking-wider">A & S</span>
+     </div>
+
+     <!-- FRASE EMOTIVA -->
      <p class="text-gray-700 italic text-base md:text-lg leading-relaxed mb-8 max-w-md mx-auto fade-in">
       "De nadie seré, solo de ti. Hasta que mis huesos se vuelvan cenizas y mi corazón deje de latir."
      </p>
@@ -494,18 +521,67 @@
       </audio>
      </div>
      
+     <!--
      <div class="mt-12">
       <a href="#countdown" class="inline-block animate-bounce text-moss hover:opacity-75 transition">
        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mx-auto opacity-75" fill="none" viewbox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
        </svg>
       </a>
-     </div>
+     </div>-->
 
     </div>
    </div>
   </section>
   
+  <!-- SECCIÓN NUESTRA HISTORIA -->
+  <section id="story" class="section py-20 relative overflow-hidden">
+   <!-- FOTO DE FONDO CON DIFUMINADO SUAVE -->
+   <div class="absolute inset-0 z-0 overflow-hidden">
+    <img src="img/nuetra-historia.jpeg" 
+         alt="Soledad, Aldo y Agustina" 
+         class="w-full h-full object-cover filter blur-[3px] brightness-[0.45] scale-105">
+   </div>
+
+   <div class="container mx-auto px-4 z-10 relative max-w-2xl text-white">
+    <div class="text-center mb-10 fade-in">
+     <span class="text-xs uppercase tracking-[0.3em] font-semibold block mb-1 opacity-90">
+      El camino recorrido
+     </span>
+     <h2 class="section-title white">Nuestra Historia</h2>
+     <p class="font-serif text-2xl font-semibold italic mt-2">"14 años, un solo corazón"</p>
+    </div>
+
+    <div class="fade-in space-y-6 text-sm md:text-base leading-relaxed text-gray-100 drop-shadow">
+     <p>
+      Nos conocimos en el 2011. Ese año solo fuimos miradas, risas y nervios. Pero fue en el 2012 cuando el destino dijo <em>"ya es tiempo"</em> y comenzó nuestra historia de amor.
+     </p>
+
+     <p>
+      Y vaya que empezó con desafío: <strong class="text-white">3 años de pollitos a distancia</strong>. Temuco y Los Andes nos separaban por kilómetros, pero nada nos separaba a nosotros. Cartas, llamadas largas, esperas en el terminal... cada <em>"te extraño"</em> valía la pena porque sabíamos que esto era para siempre.
+     </p>
+
+     <p>
+      Hasta que un día tomamos la decisión más valiente: venirnos a Iquique. Nueva ciudad, nuevo comienzo. Y ahí todo partió de nuevo, pero ahora ya no a distancia. Ahora éramos equipo, en nuestro propio espacio, construyendo casa, sueños y vida.
+     </p>
+
+     <p>
+      Los años fueron pasando tranquilos, como las olas. Tuvimos nuestra casa. Tuvimos estabilidad. Tuvimos paz. Y el universo nos regaló el mayor tesoro: <strong class="text-white">nuestra hija Agustina</strong>. Ese pequeño regalo lleno de bendiciones que nos cambió la vida y nos hizo familia completa.
+     </p>
+
+     <p>
+      Hoy ya son 14 años. 14 años de risas, de playa en Iquique, de caídas y levantadas, de crecer juntos. Y este año tomamos la decisión más bonita de todas: comprometernos aún más. Juntar nuestras vidas para siempre, con anillos y con promesa.
+     </p>
+
+     <div class="pt-6 border-t border-white/30 text-center italic font-serif text-white text-base md:text-lg space-y-2">
+      <p>"Porque si algo aprendimos entre Temuco, Los Andes e Iquique es esto:</p>
+      <p class="font-semibold">El amor no es de momentos perfectos. Es de elegirnos todos los días. A la distancia y en la misma casa. Con pollitos y con hija. Con pasado y con futuro.</p>
+      <p class="text-xl pt-2 font-bold">Y nos elegimos. Una y otra vez. Para siempre 🤍"</p>
+     </div>
+    </div>
+   </div>
+  </section>
+
   <!-- BLOQUE VERDE #1: CUENTA REGRESIVA Y CALENDARIO -->
   <section id="countdown" class="section bg-moss text-white py-20">
    <div class="container mx-auto px-4 z-10 relative">
@@ -625,12 +701,32 @@
    </div>
   </section>
 
-  <!-- FOTO DE DESCANSO #1 (demo1.jpg) -->
-  <section class="py-8 fade-in">
-   <div class="max-w-xl mx-auto px-4">
-    <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3]">
-     <img src="img/demo1.jpg" alt="Soledad & Aldo" class="w-full h-full object-cover">
+  <!-- SECCIÓN COLLAGE POLAROID (3 FOTOS) -->
+  <section class="py-12 relative overflow-hidden">
+   <div class="container mx-auto px-4 max-w-sm relative">
+    
+    <div class="relative flex flex-col items-center my-6 space-y-[-2.5rem]">
+     
+     <div class="w-64 bg-white p-3 pb-10 shadow-xl rounded-sm transform -rotate-6 -translate-x-6 z-10 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <div class="aspect-[4/5] overflow-hidden bg-gray-100">
+       <img src="img/collage1.jpeg" alt="Soledad & Aldo" class="w-full h-full object-cover">
+      </div>
+     </div>
+
+     <div class="w-68 bg-white p-3 pb-10 shadow-2xl rounded-sm transform rotate-6 translate-x-6 z-20 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <div class="aspect-[16/9] overflow-hidden bg-gray-100">
+       <img src="img/collage3.jpeg" alt="Soledad & Aldo selfie" class="w-full h-full object-cover">
+      </div>
+     </div>
+
+     <div class="w-68 bg-white p-3 pb-10 shadow-2xl rounded-sm transform -rotate-2 z-30 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40 border border-gray-100">
+      <div class="aspect-[4/3] overflow-hidden bg-gray-100">
+       <img src="img/collage2.jpeg" alt="Soledad & Aldo en la playa" class="w-full h-full object-cover">
+      </div>
+     </div>
+
     </div>
+
    </div>
   </section>
 
@@ -746,15 +842,6 @@
       </div>
 
      </div>
-    </div>
-   </div>
-  </section>
-
-  <!-- FOTO DE DESCANSO #2 (demo2.jpg) -->
-  <section class="py-8 fade-in">
-   <div class="max-w-xl mx-auto px-4">
-    <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3]">
-     <img src="img/demo2.jpg" alt="Soledad & Aldo celebrando" class="w-full h-full object-cover">
     </div>
    </div>
   </section>
