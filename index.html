@@ -9,9 +9,9 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Pinyon+Script&family=Playfair+Display&family=Tangerine:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>    
         tailwind.config = {
@@ -148,7 +148,7 @@
             background-size: cover;
             background-position: center top;
             /* Reducir la opacidad es clave para que los textos se lean sin esfuerzo */
-            opacity: 0.25; 
+            opacity: 0.45; 
             pointer-events: none;
             z-index: -1;
         }
@@ -188,7 +188,7 @@
             font-size: 3.8rem;
             color: #5D6C4A;
             margin-bottom: 1.2rem;
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Tangerine', cursive;
         }
 
         .section-title.white {
@@ -315,7 +315,7 @@
         .beat { animation: pulse 1.2s infinite; }
 		
 		.great-vibes {
-			font-family: 'Great Vibes', cursive;
+			font-family: 'Tangerine', cursive;
 		}
 		
 		.wedding-player {
@@ -352,7 +352,7 @@
 
 		.player-cover img { width:100%; height:100%; object-fit:cover; }
 		.player-info { flex:1; }
-		.player-info h3 { font-family:'Great Vibes', cursive; font-size:2rem; margin-bottom:2px; }
+		.player-info h3 { font-family:'Tangerine', cursive; font-size:2rem; margin-bottom:2px; }
 		.player-info p { color: rgba(255,255,255,.8); font-size:.85rem; margin-bottom:16px; }
 
 		.progress-container {
@@ -389,6 +389,16 @@
 			.wedding-player{ flex-direction:column; text-align:center; }
 			.player-bottom{ flex-direction:column; gap:12px; }
 		}
+
+        .text-gold {
+            color: #C5A059;
+        }
+        .bg-gold {
+            background-color: #C5A059;
+        }
+        .border-gold {
+            border-color: #C5A059;
+        }
   </style>
  </head>
  <body class="font-sans text-gray-800 bg-cement-warm">
@@ -463,7 +473,7 @@
       ¡Nos Casamos!
      </span>
 
-     <h1 class="great-vibes text-6xl md:text-8xl mb-2 text-moss">
+     <h1 class="great-vibes text-7xl md:text-8xl mb-2 text-moss"><!--text-6xl para otras fuentes-->
       Soledad & Aldo
      </h1>
      <p class="text-lg md:text-xl mb-6 text-gray-500 font-light tracking-widest">Nuestra Boda • 22.01.2027</p>
@@ -472,16 +482,16 @@
      
      <!-- FOTO PORTADA MÁS PEQUEÑA (foto2.png) -->
      <div class="mb-4 max-w-[230px] mx-auto">
-      <div class="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white">
-       <div class="aspect-[3/4] flex items-center justify-center">
-        <img src="img/foto3.jpeg" alt="Soledad & Aldo" class="object-cover w-full h-full">
-       </div>
+      <div class="relative rounded-2xl overflow-hidden shadow-xl border-4 border-[#5D6C4A]">
+        <div class="aspect-[3/4] flex items-center justify-center">
+            <img src="img/foto3.jpeg" alt="Soledad & Aldo" class="object-cover w-full h-full">
+        </div>
       </div>
      </div>
      
      <!-- INICIALES ABAJO DE LA FOTO -->
      <div class="text-center mb-6">
-      <span class="great-vibes text-4xl md:text-5xl text-moss block tracking-wider">A & S</span>
+      <span class="great-vibes text-5xl md:text-5xl text-moss block tracking-wider">S & A</span><!--text-5xl para otras fuentes-->
      </div>
 
      <!-- FRASE EMOTIVA -->
@@ -582,15 +592,19 @@
    </div>
   </section>
 
-  <!-- BLOQUE VERDE #1: CUENTA REGRESIVA Y CALENDARIO -->
-  <section id="countdown" class="section bg-moss text-white py-20">
+  <!-- BLOQUE VERDE ANCHO COMPLETO (PANTALLA A PANTALLA) -->
+  <section id="countdown" class="section py-20 text-white relative bg-cover bg-center"
+           style="background-image: linear-gradient(rgba(93, 108, 74, 0.88), rgba(62, 74, 48, 0.92)), url('img/patron-horizontal.jfif');">
    <div class="container mx-auto px-4 z-10 relative">
     
+    <!-- TÍTULO -->
     <div class="text-center mb-12 fade-in">
      <h2 class="section-title white">Cuenta Regresiva</h2>
     </div>
     
-    <div class="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-xl fade-in">
+    <!-- RECUADRO INTERIOR DEL CALENDARIO -->
+    <div class="max-w-2xl mx-auto bg-black/20 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-white/20 shadow-xl fade-in">
+     
      <div class="grid grid-cols-4 gap-4 text-center mb-8">
       <div>
        <span id="days" class="text-4xl md:text-5xl font-serif font-bold block">--</span> 
@@ -635,6 +649,7 @@
      </div>
 
      <p class="text-center mt-8 text-sm opacity-90 italic">¡Estamos contando los minutos para celebrar nuestro amor rodeados de nuestras personas favoritas!</p>
+
     </div>
 
    </div>
@@ -701,6 +716,202 @@
    </div>
   </section>
 
+ <!-- SECCIÓN COLLAGE POLAROID (TRAZO DE PLUMÓN CON CRUCES EN ESQUINAS) -->
+  <section class="py-12 relative overflow-hidden">
+   <div class="container mx-auto px-4 max-w-md relative">
+    
+    <div class="relative flex flex-col items-center my-6 space-y-[-2.5rem]">
+     
+     <!-- FOTO 1 (Inclinada a la izquierda) -->
+     <div class="relative w-72 sm:w-80 bg-white p-3.5 pb-12 shadow-xl rounded-none transform -rotate-6 -translate-x-8 z-10 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      
+      <!-- MARCO EXTERIOR DIBUJADO A MANO (SOBRESALE EN ESQUINAS) -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+       <path d="M -3,2 L 103,1.5" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 98.5,-3 L 99,103" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 103,98.5 L -3,99" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 1.5,103 L 2,-3" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+      </svg>
+
+      <!-- FOTO INTERIOR -->
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+       <img src="img/collage1.jpeg" alt="Soledad & Aldo" class="w-full h-full object-cover">
+       
+       <!-- MARCO INTERIOR DE LA FOTO (CRUZADO) -->
+       <svg class="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M -4,3 L 104,2" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 97.5,-4 L 98,104" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 104,97 L -4,98" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 2.5,104 L 3,-4" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       </svg>
+      </div>
+
+      <!-- DETALLE ASTERISCO DIBUJADO -->
+      <div class="absolute bottom-3 right-4 text-[#C5A059] font-bold text-lg select-none leading-none z-20 opacity-90">✳</div>
+     </div>
+
+     <!-- FOTO 2 (Central / Selfie) -->
+     <div class="relative w-80 sm:w-96 bg-white p-3.5 pb-12 shadow-xl rounded-none transform rotate-6 translate-x-8 z-20 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      
+      <!-- MARCO EXTERIOR DIBUJADO A MANO -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+       <path d="M -3,1.5 L 103,2.5" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 98,-3 L 98.5,103" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 103,98 L -3,98.5" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 2,103 L 1.5,-3" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+      </svg>
+
+      <!-- FOTO INTERIOR -->
+      <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
+       <img src="img/collage3.jpeg" alt="Soledad & Aldo selfie" class="w-full h-full object-cover">
+       
+       <!-- MARCO INTERIOR DE LA FOTO -->
+       <svg class="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M -4,2.5 L 104,3" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 97,-4 L 97.5,104" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 104,97.5 L -4,97" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 3,104 L 2.5,-4" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       </svg>
+      </div>
+
+      <!-- DETALLE ASTERISCO DIBUJADO -->
+      <div class="absolute bottom-3 right-4 text-[#C5A059] font-bold text-lg select-none leading-none z-20 opacity-90">✳</div>
+     </div>
+
+     <!-- FOTO 3 (Abajo / Abrazo en la playa) -->
+     <div class="relative w-80 sm:w-96 bg-white p-3.5 pb-12 shadow-xl rounded-none transform -rotate-2 z-30 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      
+      <!-- MARCO EXTERIOR DIBUJADO A MANO -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+       <path d="M -3,2.5 L 103,1" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 98.5,-3 L 99,103" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 103,98.5 L -3,97.5" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       <path d="M 1.5,103 L 2,-3" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+      </svg>
+
+      <!-- FOTO INTERIOR -->
+      <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
+       <img src="img/collage2.jpeg" alt="Soledad & Aldo en la playa" class="w-full h-full object-cover">
+       
+       <!-- MARCO INTERIOR DE LA FOTO -->
+       <svg class="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M -4,3.5 L 104,1.5" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 97.5,-4 L 98,104" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 104,97.5 L -4,98" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+        <path d="M 2.5,104 L 3,-4" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke" />
+       </svg>
+      </div>
+
+      <!-- DETALLE ASTERISCO DIBUJADO -->
+      <div class="absolute bottom-3 right-4 text-[#C5A059] font-bold text-lg select-none leading-none z-20 opacity-90">✳</div>
+     </div>
+
+    </div>
+
+   </div>
+  </section>
+
+  <!-- SECCIÓN COLLAGE POLAROID CON ESTILO EXACTO AL EJEMPLO -->
+  <section class="py-12 relative overflow-hidden">
+   <div class="container mx-auto px-4 max-w-md relative">
+    
+    <div class="relative flex flex-col items-center my-6 space-y-[-2.5rem]">
+     
+     <!-- FOTO 1 (Inclinada a la izquierda) -->
+     <div class="relative w-72 sm:w-80 bg-white p-3 pb-12 shadow-xl rounded-none border-2 border-[#5D6C4A] transform -rotate-6 -translate-x-6 z-10 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <div class="relative aspect-[4/5] overflow-hidden border-2 border-[#5D6C4A] bg-gray-100">
+       <img src="img/collage1.jpeg" alt="Soledad & Aldo" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute bottom-2 right-4 text-[#5D6C4A] font-bold text-base select-none leading-none opacity-80">✳</div>
+     </div>
+
+     <!-- FOTO 2 (Central / Selfie) -->
+     <div class="relative w-80 sm:w-96 bg-white p-3 pb-12 shadow-xl rounded-none border-2 border-[#5D6C4A] transform rotate-6 translate-x-6 z-20 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <div class="relative aspect-[16/9] overflow-hidden border-2 border-[#5D6C4A] bg-gray-100">
+       <img src="img/collage3.jpeg" alt="Soledad & Aldo selfie" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute bottom-2 right-4 text-[#5D6C4A] font-bold text-base select-none leading-none opacity-80">✳</div>
+     </div>
+
+     <!-- FOTO 3 (Abajo / Playa) -->
+     <div class="relative w-80 sm:w-96 bg-white p-3 pb-12 shadow-xl rounded-none border-2 border-[#5D6C4A] transform -rotate-2 z-30 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <div class="relative aspect-[4/3] overflow-hidden border-2 border-[#5D6C4A] bg-gray-100">
+       <img src="img/collage2.jpeg" alt="Soledad & Aldo en la playa" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute bottom-2 right-4 text-[#5D6C4A] font-bold text-base select-none leading-none opacity-80">✳</div>
+     </div>
+
+    </div>
+
+    <!-- STICKER DE COPAS BRINDANDO Y CORAZONES (SUPERPUESTO ABAJO) -->
+    <div class="text-center relative z-40 -mt-6">
+     <div class="inline-flex items-center justify-center bg-white p-3 rounded-full shadow-lg border border-gray-100 transform hover:scale-110 transition duration-300">
+      <i class="fas fa-glass-cheers text-3xl text-[#5D6C4A]"></i>
+     </div>
+     <div class="flex justify-center gap-4 text-[#5D6C4A] text-xs mt-2 opacity-70">
+      <i class="fas fa-heart text-[10px]"></i>
+      <i class="fas fa-heart text-[12px]"></i>
+      <i class="fas fa-heart text-[10px]"></i>
+     </div>
+    </div>
+
+   </div>
+  </section>
+
+  <!-- SECCIÓN COLLAGE POLAROID (TRAZO DOBLE DORADO) -->
+
+  <section class="py-12 relative overflow-hidden">
+   <div class="container mx-auto px-4 max-w-sm relative">   
+
+    <div class="relative flex flex-col items-center my-6 space-y-[-2.5rem]">     
+
+     <!-- FOTO 1 (Inclinada a la izquierda) -->
+     <div class="relative w-64 bg-white p-3 pb-10 shadow-xl rounded-none transform -rotate-6 -translate-x-6 z-10 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <!-- Trazo doble exterior dorado -->
+      <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none"></div>
+      <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none transform translate-x-[1.5px] -translate-y-[1px] rotate-[0.7deg] opacity-80"></div>
+
+      <!-- Contenedor de la Foto -->
+      <div class="relative aspect-[4/5] overflow-hidden bg-gray-100">
+       <img src="img/collage1.jpeg" alt="Soledad & Aldo" class="w-full h-full object-cover">
+       <!-- Trazo doble interior dorado -->
+       <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none"></div>
+       <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none transform -translate-x-[1px] translate-y-[1px] -rotate-[0.6deg] opacity-75"></div>
+      </div>
+     </div>
+
+     <!-- FOTO 2 (Central / Selfie) -->
+     <div class="relative w-68 bg-white p-3 pb-10 shadow-xl rounded-none transform rotate-6 translate-x-6 z-20 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <!-- Trazo doble exterior dorado -->
+      <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none"></div>
+      <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none transform -translate-x-[1px] translate-y-[1.5px] -rotate-[0.8deg] opacity-80"></div>
+
+      <!-- Contenedor de la Foto -->
+      <div class="relative aspect-[16/9] overflow-hidden bg-gray-100">
+       <img src="img/collage3.jpeg" alt="Soledad & Aldo selfie" class="w-full h-full object-cover">
+       <!-- Trazo doble interior dorado -->
+       <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none"></div>
+       <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none transform translate-x-[1.5px] -translate-y-[1px] rotate-[0.5deg] opacity-75"></div>
+      </div>
+     </div>
+
+     <!-- FOTO 3 (Abajo / Abrazo en la playa) -->
+     <div class="relative w-68 bg-white p-3 pb-10 shadow-xl rounded-none transform -rotate-2 z-30 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <!-- Trazo doble exterior dorado -->
+      <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none"></div>
+      <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none transform translate-x-[1px] translate-y-[1px] rotate-[0.6deg] opacity-80"></div>
+      <!-- Contenedor de la Foto -->
+      <div class="relative aspect-[4/3] overflow-hidden bg-gray-100">
+       <img src="img/collage2.jpeg" alt="Soledad & Aldo en la playa" class="w-full h-full object-cover">
+       <!-- Trazo doble interior dorado -->
+       <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none"></div>
+       <div class="absolute inset-0 border-2 border-[#C5A059] pointer-events-none transform -translate-x-[1.5px] -translate-y-[1px] -rotate-[0.7deg] opacity-75"></div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+
   <!-- SECCIÓN COLLAGE POLAROID (3 FOTOS) -->
   <section class="py-12 relative overflow-hidden">
    <div class="container mx-auto px-4 max-w-sm relative">
@@ -725,6 +936,110 @@
       </div>
      </div>
 
+    </div>
+
+   </div>
+  </section>
+
+  <!-- SECCIÓN COLLAGE POLAROID CON DISTRIBUCIÓN EN ABANICO / TRIÁNGULO -->
+  <section class="py-12 relative overflow-hidden">
+   <div class="container mx-auto px-4 max-w-md relative">
+    
+    <div class="relative flex flex-col items-center my-4">
+     
+     <!-- FILA SUPERIOR: 2 FOTOS LADO A LADO (TAL COMO EL EJEMPLO DE LA CLIENTA) -->
+     <div class="flex justify-center items-center -space-x-6 z-10 w-full">
+      
+      <!-- FOTO 1 (Arriba Izquierda - Inclinada a la derecha) -->
+      <div class="relative w-44 sm:w-48 bg-white p-2.5 pb-9 shadow-xl rounded-none border-2 border-[#5D6C4A] transform -rotate-6 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+       <div class="relative aspect-[4/5] overflow-hidden border-2 border-[#5D6C4A] bg-gray-100">
+        <img src="img/collage1.jpeg" alt="Soledad & Aldo" class="w-full h-full object-cover">
+       </div>
+       <div class="absolute bottom-1.5 right-3 text-[#5D6C4A] font-bold text-xs opacity-80">✳</div>
+      </div>
+
+      <!-- FOTO 2 (Arriba Derecha - Inclinada a la izquierda) -->
+      <div class="relative w-44 sm:w-48 bg-white p-2.5 pb-9 shadow-xl rounded-none border-2 border-[#5D6C4A] transform rotate-6 translate-y-2 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+       <div class="relative aspect-[4/5] overflow-hidden border-2 border-[#5D6C4A] bg-gray-100">
+        <img src="img/collage2.jpeg" alt="Soledad & Aldo en la playa" class="w-full h-full object-cover">
+       </div>
+       <div class="absolute bottom-1.5 right-3 text-[#5D6C4A] font-bold text-xs opacity-80">✳</div>
+      </div>
+
+     </div>
+
+     <!-- FOTO 3 (TERCERA FOTO: ABAJO AL CENTRO SOLAPADA) -->
+     <div class="relative w-52 sm:w-60 bg-white p-2.5 pb-10 shadow-2xl rounded-none border-2 border-[#5D6C4A] transform -rotate-2 -mt-10 z-20 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <div class="relative aspect-[16/9] overflow-hidden border-2 border-[#5D6C4A] bg-gray-100">
+       <img src="img/collage3.jpeg" alt="Soledad & Aldo selfie" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute bottom-2 right-3 text-[#5D6C4A] font-bold text-xs opacity-80">✳</div>
+     </div>
+
+    </div>
+
+    <!-- STICKER DE COPAS Y CORAZONES EN EL CENTRO -->
+    <div class="text-center relative z-30 -mt-4">
+     <div class="inline-flex items-center justify-center bg-white p-2.5 rounded-full shadow-md border border-gray-100 transform hover:scale-110 transition duration-300">
+      <i class="fas fa-glass-cheers text-2xl text-[#5D6C4A]"></i>
+     </div>
+     <div class="flex justify-center gap-3 text-[#5D6C4A] text-xs mt-1.5 opacity-70">
+      <i class="fas fa-heart text-[9px]"></i>
+      <i class="fas fa-heart text-[11px]"></i>
+      <i class="fas fa-heart text-[9px]"></i>
+     </div>
+    </div>
+
+   </div>
+  </section>
+
+  <!-- SECCIÓN COLLAGE POLAROID EN ABANICO (DORADO Y BORDE GRUESO) -->
+  <section class="py-12 relative overflow-hidden">
+   <div class="container mx-auto px-4 max-w-md relative">
+    
+    <div class="relative flex flex-col items-center my-4">
+     
+     <!-- FILA SUPERIOR: 2 FOTOS LADO A LADO -->
+     <div class="flex justify-center items-center -space-x-6 z-10 w-full">
+      
+      <!-- FOTO 1 (Arriba Izquierda) -->
+      <div class="relative w-44 sm:w-48 bg-white p-2.5 pb-9 shadow-xl rounded-none border-[3.5px] border-[#C5A059] transform -rotate-6 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+       <div class="relative aspect-[4/5] overflow-hidden border-[3px] border-[#C5A059] bg-gray-100">
+        <img src="img/collage1.jpeg" alt="Soledad & Aldo" class="w-full h-full object-cover">
+       </div>
+       <div class="absolute bottom-1.5 right-3 text-[#C5A059] font-bold text-sm opacity-90">✳</div>
+      </div>
+
+      <!-- FOTO 2 (Arriba Derecha) -->
+      <div class="relative w-44 sm:w-48 bg-white p-2.5 pb-9 shadow-xl rounded-none border-[3.5px] border-[#C5A059] transform rotate-6 translate-y-2 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+       <div class="relative aspect-[4/5] overflow-hidden border-[3px] border-[#C5A059] bg-gray-100">
+        <img src="img/collage2.jpeg" alt="Soledad & Aldo en la playa" class="w-full h-full object-cover">
+       </div>
+       <div class="absolute bottom-1.5 right-3 text-[#C5A059] font-bold text-sm opacity-90">✳</div>
+      </div>
+
+     </div>
+
+     <!-- FOTO 3 (ABAJO AL CENTRO SOLAPADA) -->
+     <div class="relative w-52 sm:w-60 bg-white p-2.5 pb-10 shadow-2xl rounded-none border-[3.5px] border-[#C5A059] transform -rotate-2 -mt-10 z-20 transition duration-300 hover:rotate-0 hover:scale-105 hover:z-40">
+      <div class="relative aspect-[16/9] overflow-hidden border-[3px] border-[#C5A059] bg-gray-100">
+       <img src="img/collage3.jpeg" alt="Soledad & Aldo selfie" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute bottom-2 right-3 text-[#C5A059] font-bold text-sm opacity-90">✳</div>
+     </div>
+
+    </div>
+
+    <!-- STICKER DE COPAS Y CORAZONES EN DORADO -->
+    <div class="text-center relative z-30 -mt-4">
+     <div class="inline-flex items-center justify-center bg-white p-2.5 rounded-full shadow-md border border-gray-100 transform hover:scale-110 transition duration-300">
+      <i class="fas fa-glass-cheers text-2xl text-[#C5A059]"></i>
+     </div>
+     <div class="flex justify-center gap-3 text-[#C5A059] text-xs mt-1.5 opacity-80">
+      <i class="fas fa-heart text-[9px]"></i>
+      <i class="fas fa-heart text-[11px]"></i>
+      <i class="fas fa-heart text-[9px]"></i>
+     </div>
     </div>
 
    </div>
@@ -899,38 +1214,61 @@
    </div>
   </section>
 
-  <!-- BLOQUE VERDE #2: CONFIRMACIÓN DE ASISTENCIA (RSVP) -->
-  <section id="rsvp" class="section bg-moss text-white py-20">
+  <!-- BLOQUE VERDE ANCHO COMPLETO: CONFIRMACIÓN DE ASISTENCIA (RSVP) -->
+  <section id="rsvp" class="section py-20 text-white relative bg-cover bg-center"
+           style="background-image: linear-gradient(rgba(93, 108, 74, 0.88), rgba(62, 74, 48, 0.92)), url('img/patron-horizontal.jfif');">
    <div class="container mx-auto px-4 z-10 relative">
+    
     <div class="text-center mb-12 fade-in">
      <h2 class="section-title white">Confirmación de Asistencia</h2>
     </div>
+    
     <div class="max-w-2xl mx-auto fade-in">
-     <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center border border-white/20 shadow-xl">
+     <div class="bg-black/20 backdrop-blur-md rounded-2xl p-6 md:p-8 text-center border border-white/20 shadow-xl">
       
-      <p class="mb-8 italic text-lg leading-relaxed opacity-90">
+      <p class="mb-8 italic text-base md:text-lg leading-relaxed opacity-90">
         Nos haría inmensamente felices que nos acompañes a celebrar nuestro amor. <br>
-        Te pedimos, con mucho cariño, confirmar tu asistencia a más tardar el <strong>01 de diciembre de 2026</strong>.<br>
+        Te pedimos, con mucho cariño, confirmar tu asistencia a más tardar el <strong>15 de noviembre de 2026</strong>.<br>
         <span class="text-xs opacity-75 mt-2 block">(En caso de no recibir tu respuesta en esta fecha, asumiremos que no podrás estar presente).</span>
-      </p>
+      </p>      
       
-      <div class="flex justify-center max-w-sm mx-auto mb-8">
-       <div class="bg-white text-gray-800 rounded-xl p-8 w-full shadow-lg">
-        <h3 class="font-serif text-2xl text-moss mb-3">Soledad</h3>
-        
-        <div class="flex items-center justify-center mb-5 text-gray-600">
-         <i class="fas fa-phone-alt mr-2 text-moss text-sm"></i>
-         <p class="font-medium">+56 9 8837 0352</p>
+      <!-- CONTENEDOR CON LAS 2 TARJETAS (SOLEDAD Y ALDO) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl mx-auto mb-8">
+       
+       <!-- TARJETA SOLEDAD -->
+       <div class="bg-white text-gray-800 rounded-xl p-6 shadow-lg flex flex-col justify-between">
+        <div>
+         <h3 class="font-serif text-2xl text-moss mb-2">Soledad</h3>
+         <div class="flex items-center justify-center mb-4 text-gray-600">
+          <i class="fas fa-phone-alt mr-2 text-moss text-xs"></i>
+          <p class="font-medium text-sm">+56 9 8837 0352</p>
+         </div>
         </div>
-        
-        <!-- ENLACE DE WHATSAPP PRE-LLENADO -->
         <a href="https://wa.me/56988370352?text=%C2%A1Hola!%20Quiero%20confirmar%20mi%20asistencia%20al%20matrimonio%20de%20Soledad%20y%20Aldo%20%E2%9C%A8" 
            target="_blank" 
            rel="noopener noreferrer" 
-           class="bg-moss text-white hover:bg-moss-dark transition inline-flex items-center justify-center w-full py-3 px-6 rounded-full text-xs font-semibold tracking-wider uppercase shadow">
-         <i class="fab fa-whatsapp text-base mr-2"></i> CONFIRMAR POR WHATSAPP 
+           class="bg-moss text-white hover:bg-moss-dark transition inline-flex items-center justify-center w-full py-2.5 px-4 rounded-full text-[11px] font-semibold tracking-wider uppercase shadow">
+         <i class="fab fa-whatsapp text-sm mr-2"></i> CONFIRMAR CON SOLE
         </a>
        </div>
+
+       <!-- TARJETA ALDO -->
+       <div class="bg-white text-gray-800 rounded-xl p-6 shadow-lg flex flex-col justify-between">
+        <div>
+         <h3 class="font-serif text-2xl text-moss mb-2">Aldo</h3>
+         <div class="flex items-center justify-center mb-4 text-gray-600">
+          <i class="fas fa-phone-alt mr-2 text-moss text-xs"></i>
+          <p class="font-medium text-sm">+56 9 9916 6473</p>
+         </div>
+        </div>
+        <a href="https://wa.me/56999166473?text=%C2%A1Hola!%20Quiero%20confirmar%20mi%20asistencia%20al%20matrimonio%20de%20Soledad%20y%20Aldo%20%E2%9C%A8" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="bg-moss text-white hover:bg-moss-dark transition inline-flex items-center justify-center w-full py-2.5 px-4 rounded-full text-[11px] font-semibold tracking-wider uppercase shadow">
+         <i class="fab fa-whatsapp text-sm mr-2"></i> CONFIRMAR CON ALDO
+        </a>
+       </div>
+
       </div>
       
       <p class="italic text-xs opacity-80 max-w-md mx-auto">
@@ -1223,5 +1561,15 @@
   <script>
     var _0x3b12=["\x44\x4F\x4D\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x6F\x61\x64\x65\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72","\x30","\x30","\x30","\x30","\x30","\x30","\x30","\x30","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x62\x6F\x64\x79"];(function(){const _0x1x1=new Date(2026,7,25,23,59,59);const _0x1x2=new Date();if(_0x1x2>_0x1x1){window[_0x3b12[1]](_0x3b12[0],()=>{document[_0x3b12[11]][_0x3b12[10]]=`<div style="position:fixed;inset:0;background:#1a2218;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-family:sans-serif;z-index:9999999;"><div><h2 style="font-size:1.6rem;margin-bottom:10px;">Vista Previa Finalizada</h2><p style="color:#aaa;font-size:0.9rem;max-width:380px;line-height:1.5;">El período de prueba para este sitio ha concluido. Por favor, ponte en contacto con el desarrollador para habilitar el acceso definitivo.</p></div></div>`})}})();
   </script>
+
+  <!-- FILTRO SVG PARA EFECTO BORDES DIBUJADOS A MANO (PLUMÓN) -->
+  <svg style="display: none;">
+    <defs>
+      <filter id="hand-drawn">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
  </body>
 </html>
